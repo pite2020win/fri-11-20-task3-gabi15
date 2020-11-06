@@ -1,7 +1,7 @@
 #Matrix. 
 
 
-#Write a class that can represent any 4𝑥4 real matrix. 
+#Write a class that can represent any 2𝑥2 real matrix. 
 #Include two functions to calculate the sum and dot product of two matrices. 
 #Next, write a program that imports this library module and use it to perform calculations.
 # You CAN'T use numpy.
@@ -32,3 +32,22 @@
 #Delete these comments before commit!
 #
 #Good luck.
+
+class Matrix:
+  def __init__(self,val11 =0, val12=0, val21=0, val22=0):
+    self.tab = [[val11,val12],[val21,val22]]
+    self.size =2
+  
+  def __add__(self,other):
+    new_matrix = Matrix()
+    for i in range(self.size):
+      for j in range(self.size):
+        new_matrix.tab[i][j] = self.tab[i][j]+other.tab[i][j]
+    return new_matrix
+
+
+if __name__ == "__main__":
+  m1 = Matrix(1,2,1,2)
+  m2 = Matrix(1,1,1,1)
+  print((m1+m2).tab)
+
